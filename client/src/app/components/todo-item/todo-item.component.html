@@ -1,1 +1,29 @@
-<p>todo-item works!</p>
+<style>
+  .container {
+    display: flex;
+    justify-content: space-between;
+    width: 50vw;
+  }
+  .title {
+    width: 30vw;
+    border: 1px solid gray;
+  }
+</style>
+<div class="container">
+  <div>#ID</div>
+  <div class="title" *ngIf="isTranslateClicked; else TranslatedOutput">
+    Title
+  </div>
+  <ng-template #TranslatedOutput>
+    <p>Translated output text</p>
+  </ng-template>
+  <div>
+    <Button *ngIf="isTranslateClicked; else Close" (click)="translateClick()"
+      >Translate</Button
+    >
+    <ng-template #Close>
+      <button (click)="translateClick()">Close</button>
+    </ng-template>
+    <Button>Delete</Button>
+  </div>
+</div>
