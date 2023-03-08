@@ -1,2 +1,6 @@
-<input type="text" placeholder="Add input here..." />
-<button>Add</button>
+<input
+  [(ngModel)]="todoInput"
+  type="text"
+  placeholder="Add Todo Item here..."
+/>
+<button (click)="addTodo()">Add</button>

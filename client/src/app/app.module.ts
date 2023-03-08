@@ -8,6 +8,7 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { StoreModule } from '@ngrx/store';
 import { todoReducer } from './providers/todos.reducers';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { todoReducer } from './providers/todos.reducers';
     StoreModule.forRoot({
       todos: todoReducer,
     }),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
