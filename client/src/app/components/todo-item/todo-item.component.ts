@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
 })
 export class TodoItemComponent {
   isTranslateClicked: boolean = false;
-  translateClick() {
+
+  translateTodo() {
     this.isTranslateClicked = !this.isTranslateClicked;
   }
+  deleteTodo() {}
 }

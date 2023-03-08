@@ -18,11 +18,11 @@
     <p>Translated output text</p>
   </ng-template>
   <div>
-    <Button *ngIf="isTranslateClicked; else Close" (click)="translateClick()"
+    <Button *ngIf="isTranslateClicked; else Close" (click)="translateTodo()"
       >Translate</Button
     >
     <ng-template #Close>
-      <button (click)="translateClick()">Close</button>
+      <button (click)="translateTodo()">Close</button>
     </ng-template>
     <Button>Delete</Button>
   </div>
