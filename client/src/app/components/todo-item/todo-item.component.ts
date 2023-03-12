@@ -22,9 +22,7 @@ export class TodoItemComponent {
   deleteTodo() {
     this.store.dispatch(
       actions.deleteTodoAction({
-        id: this.todo!.id,
-        isCompleted: this.todo!.isCompleted,
-        title: this.todo!.title,
+        id: this.todo!.id
       })
     );
   }

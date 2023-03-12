@@ -13,9 +13,22 @@ export const todoReducer = createReducer(
   on(actions.addTodoAction, (state, todo) => {
     return [...state, todo];
   }),
-  on(actions.deleteTodoAction, (state, todo) => {
-    let todos = state.filter((t) => t.id != todo.id);
-    return [...todos];
+  on(actions.deleteTodoAction, (state, arg) => {
+    let item = state.find((t) => t.id == arg.id);
+
+    if (item == null) {
+      return state;  
+    }
+
+    return [
+      ...state.filter(t => t != item),
+      {
+        id: item.id,
+        isCompleted: item.isCompleted,
+        title: item.title,
+        isDeleted: true,
+      }
+    ];
   })
 );
 

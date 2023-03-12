@@ -23,6 +23,7 @@ export class TodoInputComponent {
           id: this.todos!.length + 1,
           isCompleted: false,
           title: this.todoInput!,
+          isDeleted: false
         })
       );
     }
