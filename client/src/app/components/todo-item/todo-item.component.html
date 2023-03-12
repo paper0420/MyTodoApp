@@ -18,7 +18,7 @@
   <div>#{{ todo!.id }}</div>
 
   <div [ngClass]="{ 'line-through': todo.isCompleted }" class="title" (click)="toggleCompletion()"
-    *ngIf="isTranslateClicked; else TranslatedOutput">
+    *ngIf="!showTranslation; else TranslatedOutput">
     {{ todo!.title }}
   </div>
 
@@ -27,9 +27,9 @@
   </ng-template>
 
   <div>
-    <Button *ngIf="isTranslateClicked; else Close" (click)="translateTodo()">Translate</Button>
+    <Button *ngIf="!showTranslation; else Close" (click)="translateTodo()">Translate</Button>
     <ng-template #Close>
-      <button (click)="translateTodo()">Close</button>
+      <button (click)="translateTodo()">Hide translation</button>
     </ng-template>
     <Button (click)="deleteTodo()">Delete</Button>
   </div>
