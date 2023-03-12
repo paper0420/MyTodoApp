@@ -11,12 +11,18 @@ import { Store } from '@ngrx/store';
 export class TodoItemComponent {
   @Input() todo?: TodoModel;
   isTranslateClicked: boolean = true;
-  completeTodo: boolean = false;
-  constructor(private store: Store) {}
+  constructor(private store: Store) { }
 
   translateTodo() {
-    this.completeTodo = this.todo!.isCompleted;
     this.isTranslateClicked = !this.isTranslateClicked;
+  }
+
+  toggleCompletion() {
+    this.store.dispatch(
+      actions.toggleTodoCompletionAction({
+        id: this.todo!.id
+      })
+    );
   }
 
   deleteTodo() {

@@ -29,6 +29,23 @@ export const todoReducer = createReducer(
         isDeleted: true,
       }
     ];
+  }),
+  on(actions.toggleTodoCompletionAction, (state, arg) => {
+    let item = state.find(t => t.id == arg.id);
+
+    if (item == null) {
+      return state;
+    }
+
+    return [
+      ...state.filter(t => t != item),
+      {
+        id: item.id,
+        isCompleted: !item.isCompleted,
+        title: item.title,
+        isDeleted: item.isDeleted,
+      }
+    ];
   })
 );
 
