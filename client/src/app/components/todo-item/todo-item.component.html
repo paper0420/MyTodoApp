@@ -17,7 +17,7 @@
 <div class="container">
   <div>#{{ todo!.id }}</div>
 
-  <div [ngClass]="{ 'line-through': todo?.isCompleted }" class="title" (click)="toggleCompletion()"
+  <div [ngClass]="{ 'line-through': todo.isCompleted }" class="title" (click)="toggleCompletion()"
     *ngIf="isTranslateClicked; else TranslatedOutput">
     {{ todo!.title }}
   </div>

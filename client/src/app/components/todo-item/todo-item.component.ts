@@ -9,7 +9,7 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./todo-item.component.scss'],
 })
 export class TodoItemComponent {
-  @Input() todo?: TodoModel;
+  @Input() todo!: TodoModel;
   isTranslateClicked: boolean = true;
   constructor(private store: Store) { }
 
@@ -20,7 +20,7 @@ export class TodoItemComponent {
   toggleCompletion() {
     this.store.dispatch(
       actions.toggleTodoCompletionAction({
-        id: this.todo!.id
+        id: this.todo.id
       })
     );
   }
@@ -28,7 +28,7 @@ export class TodoItemComponent {
   deleteTodo() {
     this.store.dispatch(
       actions.deleteTodoAction({
-        id: this.todo!.id
+        id: this.todo.id
       })
     );
   }
