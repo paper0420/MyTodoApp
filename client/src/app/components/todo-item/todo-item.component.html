@@ -4,6 +4,7 @@
     justify-content: space-between;
     width: 50vw;
   }
+
   .title {
     width: 30vw;
     border: 1px solid gray;
@@ -20,13 +21,13 @@
     *ngIf="isTranslateClicked; else TranslatedOutput">
     {{ todo!.title }}
   </div>
+
   <ng-template #TranslatedOutput>
     <p>Translated output text</p>
   </ng-template>
+
   <div>
-    <Button *ngIf="isTranslateClicked; else Close" (click)="translateTodo()"
-      >Translate</Button
-    >
+    <Button *ngIf="isTranslateClicked; else Close" (click)="translateTodo()">Translate</Button>
     <ng-template #Close>
       <button (click)="translateTodo()">Close</button>
     </ng-template>
