@@ -11,10 +11,6 @@ import { Store } from '@ngrx/store';
 export class TodoListComponent {
   todos: TodoModel[] = [];
   constructor(private store: Store) {
-    this.loadTodos();
-  }
-
-  loadTodos() {
     this.store.select(todosSelector).subscribe((state) => (this.todos = state));
   }
 }
