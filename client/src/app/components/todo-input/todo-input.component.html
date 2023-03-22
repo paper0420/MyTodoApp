@@ -1,6 +1,24 @@
-<input
-  [(ngModel)]="todoInput"
-  type="text"
-  placeholder="Add Todo Item here..."
-/>
-<button (click)="addTodo()">Add</button>
+<style>
+  .container {
+    margin: 5px;
+    text-align: center;
+  }
+  .addButton {
+    margin-left: 10px;
+  }
+</style>
+
+<div class="container">
+  <mat-form-field class="example-form-field">
+    <mat-label>Add Todo Item here...</mat-label>
+    <input matInput type="text" [(ngModel)]="todoInput" />
+  </mat-form-field>
+  <button
+    class="addButton"
+    mat-raised-button
+    color="primary"
+    (click)="addTodo()"
+  >
+    Add
+  </button>
+</div>

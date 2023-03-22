@@ -1,3 +1,25 @@
-<app-todo-input></app-todo-input>
-<app-todo-list></app-todo-list>
-<button (click)="sendArrayToServer()">Save</button>
+<style>
+  .container {
+    width: 75vw;
+    margin: auto;
+  }
+
+  .saveButton {
+    margin-top: 5px;
+  }
+</style>
+<div class="container">
+  <mat-toolbar>
+    <span>My Todo App</span>
+  </mat-toolbar>
+  <app-todo-input></app-todo-input>
+  <app-todo-list></app-todo-list>
+  <button
+    class="saveButton"
+    mat-raised-button
+    color="warn"
+    (click)="sendArrayToServer()"
+  >
+    Save
+  </button>
+</div>

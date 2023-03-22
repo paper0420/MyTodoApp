@@ -1,36 +1,45 @@
 <style>
   .container {
-    display: flex;
-    justify-content: space-between;
-    width: 50vw;
+    width: 50%;
   }
-
-  .title {
-    width: 30vw;
-    border: 1px solid gray;
-  }
-
   .line-through {
     text-decoration: line-through;
   }
+  mat-card {
+    margin-top: 5px;
+    width: fit-content;
+  }
 </style>
 <div class="container">
-  <div>#{{ todo!.id }}</div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>#{{ todo!.id }}</mat-card-title>
+      <mat-card-subtitle
+        [ngClass]="{ 'line-through': todo.isCompleted }"
+        class="title"
+        (click)="toggleCompletion()"
+        *ngIf="!showTranslation; else TranslatedOutput"
+        >{{ todo!.title }}</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-actions>
+      <button
+        mat-button
+        *ngIf="!showTranslation; else Close"
+        (click)="translateTodo()"
+      >
+        Translate
+      </button>
 
-  <div [ngClass]="{ 'line-through': todo.isCompleted }" class="title" (click)="toggleCompletion()"
-    *ngIf="!showTranslation; else TranslatedOutput">
-    {{ todo!.title }}
-  </div>
+      <button mat-button (click)="deleteTodo()">Delete</button>
+    </mat-card-actions>
+  </mat-card>
 
   <ng-template #TranslatedOutput>
     <p>Translated output text</p>
   </ng-template>
 
-  <div>
-    <Button *ngIf="!showTranslation; else Close" (click)="translateTodo()">Translate</Button>
-    <ng-template #Close>
-      <button (click)="translateTodo()">Hide translation</button>
-    </ng-template>
-    <Button (click)="deleteTodo()">Delete</Button>
-  </div>
+  <ng-template #Close>
+    <button mat-button (click)="translateTodo()">Hide translation</button>
+  </ng-template>
 </div>

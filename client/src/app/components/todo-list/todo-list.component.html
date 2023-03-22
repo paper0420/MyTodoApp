@@ -1,3 +1,17 @@
-<div *ngFor="let todo of todos">
-  <app-todo-item [todo]="todo" *ngIf="!todo.isDeleted" />
+<style>
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .size{
+    width: fit-content;
+    margin: 3px;
+  }
+</style>
+<div class="container">
+  <div *ngFor="let todo of todos" class="size">
+    <app-todo-item [todo]="todo" *ngIf="!todo.isDeleted" />
+  </div>
+
 </div>
+
